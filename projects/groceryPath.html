@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../style.css">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Shortest path through grocery store</title>
+</head>
+
+<body>
+  
+  <div class="header">
+    <h1>Shortest Path Through Grocery Store</h1>
+  </div>
+
+  <div class="about">
+    <a href="https://github.com/ryomakawakami/groceryPath">GitHub Repo</a><br/><br/>
+    This allows users to input a grocery list and generates the closest path through the store to get all the desired items.
+    <br/><br/>
+    This project was originally attempted in Java at HackOHI/O 2019. The project was scrapped and restarted afterwards.
+    <hr/>
+  </div>
+
+  <div class="main">
+    <b>Planned UI flow:</b><br/>
+    <ul>GUI to input grocery</ul>
+    <ul>Find closest path using A* with multiple goals</ul>
+    <ul>GUI to show path</ul>
+    <b>Technologies:</b><br/>
+    <ul>MATLAB for closest path algorithm (use <a href="https://github.com/EinarUeland/Astar-Algorithm">this A* algorithm</a>)</ul>
+    <ul>GUI TBD</ul>
+    <hr/>
+  </div>
+
+  <div class="algorithm">
+    <b>Shortest path algorithm:</b><br/><br/>
+    A* doesn't support intermediate goals. The A* algorithm made by EinarUeland supports multiple goal nodes, terminating
+    when it reaches the closest goal node. A layered implementation was made to allow for intermediate goal nodes. The
+    basic idea is to keep a vector of goal nodes. Each time the algorithm runs, the goal node that is reached is
+    removed from the vector, and the algorithm is run again, this time with a shorter list of goal nodes. This process
+    is repeated until the vector of goal nodes is empty.<br/><br/>
+    A problem with this implementation was that it doesn't allow for a specified ending node (the cash register). This
+    cannot be remedied using this implementation, so a different approach is needed. Currently, the plan is for a more
+    brute force style of approach, where the paths between each pair of nodes is calculated. The smallest sum is taken as
+    the shortest path. To be more concrete, here is an example.<br/><br/>
+    ABCDE, where A is the beginning and E is the end. The following pairs are calculated with A*: AB, AC, AD, BC, BD, CD,
+    BE, CE, and DE. Then, the lengths of the simple paths from A to E are found by addition.<br/>
+    <img src="paths.png"/>
+  </div>
+
+  <div class="footer">
+  </div>
+
+</body>
+</html>
