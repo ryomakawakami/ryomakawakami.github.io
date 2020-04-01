@@ -1,44 +1,21 @@
-body {
+* {
     text-align: left;
     font-family: verdana;
     background-color: rgb(31, 31, 31);
     color: rgb(221, 221, 221);
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
+    padding-bottom: 15px;
+}
+
 a {
     //color: rgb(221, 221, 221);
     color: lightskyblue;
     text-decoration: none;
-}
-
-div {
-
-}
-
-.header {
-
-}
-
-.about {
-
-}
-
-.project {
-
-}
-
-.current {
-    
-}
-
-.future {
-
-}
-
-.past {
-
-}
-
-.footer {
-
 }
